@@ -10,10 +10,19 @@ jobs:
       matrix:
         node-version: [20.x]
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: cd server && npm install
-    - run: cd server && npm test
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install backend dependencies
+        run: cd server && npm ci
+
+      # Optional: fix permissions if jest fails
+      - name: Fix Jest permissions
+        run: chmod +x server/node_modules/.bin/jest
+
+      - name: Run backend tests
+        run: cd server && npx jest --testEnvironment=node
