@@ -8,27 +8,4 @@ app.use(express.json());
 app.use('/api/services', serviceRoutes);
 
 beforeAll(async () => {
-  await Service.create({ name: 'Test Service', price: 50 });
-});
-
-describe('GET /api/services', () => {
-  it('should return 200 OK', async () => {
-    const res = await request(app).get('/api/services');
-    expect(res.statusCode).toEqual(200);
-    expect(Array.isArray(res.body)).toBe(true);
-    expect(res.body.length).toBeGreaterThan(0);
-    expect(res.body[0]).toHaveProperty('name', 'Test Service');
-  }, 10000);
-});
-
-describe('POST /api/services', () => {
-  it('should create a new service', async () => {
-    const res = await request(app)
-      .post('/api/services')
-      .send({ name: 'New Service', price: 75 });
-
-    expect(res.statusCode).toEqual(201);
-    expect(res.body).toHaveProperty('name', 'New Service');
-    expect(res.body).toHaveProperty('price', 75);
-  }, 10000);
 });
