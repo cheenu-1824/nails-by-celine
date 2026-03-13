@@ -20,7 +20,5 @@ if (mongoUri && mongoUri.startsWith('mongodb')) {
 
 // Test route
 app.get('/', (req, res) => {
-  res.send('Hello! Server is running without a database.');
+  res.send('Hello! Server is running with a database.');
 });
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
