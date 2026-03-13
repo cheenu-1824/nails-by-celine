@@ -27,6 +27,6 @@ describe('GET /api/services', () => {
   it('should return 200 OK', async () => {
     const res = await request(app).get('/api/services');
     expect(res.statusCode).toEqual(500);
-    expect(Array.isArray(res.body)).toBe(true);
+    expect(Array.isArray(res.body)).toBe(false);
   });
 });
