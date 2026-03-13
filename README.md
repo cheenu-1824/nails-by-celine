@@ -65,7 +65,7 @@ npm install
 ### Running the Program
 
 cd server
-npm run
+npm start
 
 cd client
 npm start

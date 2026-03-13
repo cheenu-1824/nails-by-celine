@@ -1,0 +1,26 @@
+# Node modules (backend & frontend)
+server/node_modules/
+client/node_modules/
+
+# Logs
+server/logs/
+client/logs/
+*.log
+
+# Environment files
+server/.env
+client/.env
+
+# Build / output folders
+client/build/
+server/dist/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Optional: lock files if you don’t want them
+server/package-lock.json
+client/package-lock.json
+client/yarn.lock
